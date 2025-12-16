@@ -40,6 +40,7 @@
 }
 
 .footer-col h3 {
+  text-align: center;
   font-family: var(--fonte-titulo);
   font-size: 1rem;
   margin-bottom: 0.8rem;
@@ -48,6 +49,7 @@
 
 .footer-col p,
 .footer-col a {
+  text-align: center;
   font-size: 0.9rem;
   color: var(--cinza-claro);
   text-decoration: none;
@@ -59,6 +61,7 @@
 
 .footer-col ul {
   list-style: none;
+  text-align: center;
 }
 
 .footer-col ul li {
