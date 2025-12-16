@@ -21,19 +21,8 @@
 }
 
 /* ================================
-   RESET BÁSICO
-================================ */
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* ================================
    BASE
 ================================ */
-
 html {
   background-color: var(--branco-quente);
 }
@@ -52,7 +41,6 @@ a {
 /* ================================
    HERO
 ================================ */
-
 .hero {
   background: linear-gradient(
     180deg,
@@ -87,7 +75,6 @@ a {
 }
 
 /* BOTÕES */
-
 .hero-buttons {
   display: flex;
   justify-content: center;
@@ -126,7 +113,6 @@ a {
 /* ================================
    SEÇÕES GERAIS
 ================================ */
-
 .section {
   max-width: 1000px;
   margin: 4.5rem auto;
@@ -221,6 +207,7 @@ cite {
   right: 10px;
 }
 
+
 /* ================================
    CARDS
 ================================ */
@@ -264,7 +251,6 @@ cite {
 /* ================================
    DESTAQUE FINAL
 ================================ */
-
 .destaque {
   background-color: var(--verde-oliva);
   color: var(--branco-quente);
