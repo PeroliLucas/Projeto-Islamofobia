@@ -21,3 +21,28 @@ const slides = document.querySelectorAll('.slide');
   });
 
   showSlide(current);
+
+/* ===============================
+   REVEAL AO SCROLL (GLOBAL)
+================================ */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const elementosReveal = document.querySelectorAll(
+    ".card.autor"
+  );
+
+  if (elementosReveal.length === 0) return;
+
+  function revelarElementos() {
+    const limite = window.innerHeight * 0.85;
+
+    elementosReveal.forEach(el => {
+      if (el.getBoundingClientRect().top < limite) {
+        el.classList.add("visible");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", revelarElementos);
+  revelarElementos();
+});
