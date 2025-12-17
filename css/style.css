@@ -1,31 +1,22 @@
-/* ================================
-   ROOT — VARIÁVEIS DO PROJETO
-================================ */
-
+/* ================================ ROOT — VARIÁVEIS DO PROJETO ================================ */
 :root {
   /* CORES */
   --branco-quente: #f5f5f5;
   --preto-profundo: #0b120e;
   --verde-oliva: #0f1a13;
-
   --vermelho-vinho: #c1272d;
   --vermelho-vinho-hover: #a51f24;
   --verde-palestina: #007a3d;
-
   --cinza-claro: #eaeaea;
   --cinza-medio: #aaa;
   --cinza-borda: #2a2a2a;
-
   --laranja-suave: #f9a825;
-
   /* TIPOGRAFIA */
   --fonte-titulo: "Playfair Display", serif;
   --fonte-texto: "Inter", sans-serif;
 }
 
-/* ================================
-   BASE
-================================ */
+/* ================================ BASE ================================ */
 html {
   background-color: var(--branco-quente);
   scroll-behavior: smooth;
@@ -47,15 +38,9 @@ a:hover {
   color: var(--vermelho-vinho);
 }
 
-/* ================================
-   HERO
-================================ */
+/* ================================ HERO ================================ */
 .hero {
-  background: linear-gradient(
-    180deg,
-    var(--verde-oliva),
-    var(--preto-profundo)
-  );
+  background: linear-gradient(180deg, var(--verde-oliva), var(--preto-profundo));
   color: var(--branco-quente);
   padding: 6rem 1.5rem;
   text-align: center;
@@ -119,9 +104,7 @@ a:hover {
   color: #fff;
 }
 
-/* ================================
-   SEÇÕES GERAIS
-================================ */
+/* ================================ SEÇÕES GERAIS ================================ */
 .section {
   max-width: 1000px;
   margin: 4.5rem auto;
@@ -140,9 +123,7 @@ a:hover {
   max-width: 800px;
 }
 
-/* ================================
-   CAROUSEL DE CITAÇÕES
-================================ */
+/* ================================ CAROUSEL DE CITAÇÕES ================================ */
 .carousel {
   position: relative;
   max-width: 760px;
@@ -216,9 +197,7 @@ cite {
   right: 10px;
 }
 
-/* ================================
-   CARDS
-================================ */
+/* ================================ CARDS ================================ */
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -256,9 +235,7 @@ cite {
   font-weight: 500;
 }
 
-/* ================================
-   ESTATÍSTICAS INTERATIVAS
-================================ */
+/* ================================ ESTATÍSTICAS INTERATIVAS ================================ */
 .stats {
   text-align: center;
   padding: 3rem 1.5rem;
@@ -303,9 +280,7 @@ cite {
   color: var(--verde-oliva);
 }
 
-/* ================================
-   FAQ
-================================ */
+/* ================================ FAQ ================================ */
 .faq {
   max-width: 900px;
   margin: 3rem auto;
@@ -343,9 +318,7 @@ cite {
   color: var(--verde-oliva);
 }
 
-/* ================================
-   DESTAQUE FINAL
-================================ */
+/* ================================ DESTAQUE FINAL ================================ */
 .destaque {
   background-color: var(--verde-oliva);
   color: var(--branco-quente);
@@ -364,9 +337,7 @@ cite {
   font-size: 0.95rem;
 }
 
-/* ================================
-   SEÇÃO DE LEITURA PROFUNDA
-================================ */
+/* ================================ SEÇÃO DE LEITURA PROFUNDA ================================ */
 .leitura-profunda {
   max-width: 900px;
   margin: 4rem auto;
@@ -460,14 +431,14 @@ cite {
   margin-bottom: 1rem;
   cursor: pointer;
   border-left: 5px solid var(--verde-palestina);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
   padding: 1rem 1.5rem;
 }
 
 .impactos-sociais .impactos:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
 }
 
 .impactos-sociais .impactos h3 {
@@ -490,10 +461,7 @@ cite {
   padding: 3rem 4.5rem;
 }
 
-
-/*
-TIMELINE
-*/
+/* TIMELINE */
 .timeline {
   max-width: 900px;
   margin: 4rem auto;
@@ -629,7 +597,7 @@ TIMELINE
   background: #c1272d;
   color: #fff;
   transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* ====== Cards ====== */
@@ -644,14 +612,14 @@ TIMELINE
   padding: 1.5rem;
   border-radius: 12px;
   border-left: 5px solid var(--vermelho-vinho);
-  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card.conteudo:hover {
-   border-left: 5px solid var(--verde-palestina);
+  border-left: 5px solid var(--verde-palestina);
   transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
 .card.conteudo h3 {
@@ -663,11 +631,7 @@ TIMELINE
   line-height: 1.5;
 }
 
-
-
-/* ================================
-   CARDS DE AUTORES
-================================ */
+/* ================================ CARDS DE AUTORES ================================ */
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
