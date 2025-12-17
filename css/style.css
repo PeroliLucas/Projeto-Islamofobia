@@ -10,10 +10,13 @@
 
   --vermelho-vinho: #c1272d;
   --vermelho-vinho-hover: #a51f24;
+  --verde-palestina: #007a3d;
 
   --cinza-claro: #eaeaea;
   --cinza-medio: #aaa;
   --cinza-borda: #2a2a2a;
+
+  --laranja-suave: #f9a825;
 
   /* TIPOGRAFIA */
   --fonte-titulo: "Playfair Display", serif;
@@ -25,6 +28,7 @@
 ================================ */
 html {
   background-color: var(--branco-quente);
+  scroll-behavior: smooth;
 }
 
 body {
@@ -36,6 +40,11 @@ body {
 a {
   text-decoration: none;
   color: inherit;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--vermelho-vinho);
 }
 
 /* ================================
@@ -207,7 +216,6 @@ cite {
   right: 10px;
 }
 
-
 /* ================================
    CARDS
 ================================ */
@@ -222,7 +230,7 @@ cite {
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
   border-left: 4px solid var(--verde-oliva);
   padding: 1.7rem;
-  border-left: 4px solid var(--verde-oliva);
+  border-left: 4px solid var(--verde-palestina);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border-radius: 16px;
 }
@@ -249,6 +257,93 @@ cite {
 }
 
 /* ================================
+   ESTATÍSTICAS INTERATIVAS
+================================ */
+.stats {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  background-color: var(--cinza-claro);
+  border-radius: 16px;
+}
+
+.stats h2 {
+  color: var(--verde-palestina);
+  font-family: var(--fonte-titulo);
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+}
+
+.stats-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.6rem;
+}
+
+.stat-card {
+  background-color: var(--branco-quente);
+  padding: 2rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.stat-card h3 {
+  font-size: 2rem;
+  color: var(--vermelho-vinho);
+  margin-bottom: 0.6rem;
+}
+
+.stat-card p {
+  font-size: 0.9rem;
+  color: var(--verde-oliva);
+}
+
+/* ================================
+   FAQ
+================================ */
+.faq {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+}
+
+.faq h2 {
+  font-family: var(--fonte-titulo);
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.faq-item {
+  background-color: var(--cinza-claro);
+  padding: 1.5rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.faq-item:hover {
+  background-color: var(--cinza-claro-hover, #e0e0e0);
+  transform: translateY(-2px);
+}
+
+.faq-item h3 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.faq-item p {
+  font-size: 0.9rem;
+  color: var(--verde-oliva);
+}
+
+/* ================================
    DESTAQUE FINAL
 ================================ */
 .destaque {
@@ -269,56 +364,340 @@ cite {
   font-size: 0.95rem;
 }
 
-
-/* ===============================
-   PÁGINAS TEÓRICAS – GLOBAL
+/* ================================
+   SEÇÃO DE LEITURA PROFUNDA
 ================================ */
+.leitura-profunda {
+  max-width: 900px;
+  margin: 4rem auto;
+  padding: 0 1.5rem;
+}
 
-.hero-teoria {
-  padding: 4.5rem 1.5rem;
-  background: linear-gradient(
-    180deg,
-    var(--verde-oliva),
-    #16251c
-  );
-  color: var(--branco);
+.leitura-profunda strong {
+  color: var(--vermelho-vinho);
+  font-weight: 600;
+}
+
+.leitura-profunda h2 {
+  font-family: var(--fonte-titulo);
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.leitura-profunda h2::after {
+  content: "";
+  display: block;
+  width: 120px;
+  height: 3px;
+  background-color: var(--vermelho-vinho);
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
+}
+
+.leitura-profunda h3 {
+  font-size: 1.3rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.8rem;
+  color: var(--verde-oliva);
 }
 
 .leitura-profunda p {
-  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
   line-height: 1.9;
+  font-size: 1rem;
+  color: #1c1c1c;
+}
+
+.leitura-profunda li {
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+  line-height: 1.7;
+  font-size: 1rem;
+  position: relative;
+}
+
+.leitura-profunda li::before {
+  content: "•";
+  color: var(--vermelho-vinho);
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+.leitura-profunda ul {
+  border-left: 3px solid var(--verde-palestina);
+  padding-left: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.curiosidade {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1.5rem 2rem;
+  background: var(--branco-quente);
+  border-left: 6px solid var(--verde-palestina);
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  font-size: 1rem;
+  font-weight: 500;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.curiosidade:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+  border-left: 6px solid var(--vermelho-vinho);
+}
+
+/* IMPACTOS SOCIAIS (ACCORDION) */
+.impactos-sociais .impactos {
+  background-color: var(--branco-quente);
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  border-left: 5px solid var(--verde-palestina);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+  padding: 1rem 1.5rem;
+}
+
+.impactos-sociais .impactos:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+}
+
+.impactos-sociais .impactos h3 {
+  text-align: center;
+  font-size: 1.6rem;
+  font-family: var(--fonte-titulo);
+  color: var(--verde-palestina);
+  margin-bottom: 0.5rem;
+}
+
+.impactos-sociais .impactos p {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+  padding: 0 1.5rem;
+  line-height: 1.7;
+}
+
+.impactos-sociais .impactos.open p {
+  padding: 3rem 4.5rem;
+}
+
+
+/*
+TIMELINE
+*/
+.timeline {
+  max-width: 900px;
+  margin: 4rem auto;
+  position: relative;
+  padding: 0 1.5rem;
+}
+
+.timeline h2 {
+  font-family: var(--fonte-titulo);
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.timeline h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: var(--vermelho-vinho);
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
 }
 
 .timeline ul {
   list-style: none;
-  padding-left: 1rem;
-  border-left: 3px solid var(--vermelho-vinho);
+  padding: 0;
+  position: relative;
 }
 
+.timeline ul::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background-color: var(--verde-oliva);
+  border-radius: 2px;
+}
+
+/* ITENS DA TIMELINE */
 .timeline li {
-  margin-bottom: 1.2rem;
-  padding-left: 1rem;
+  position: relative;
+  width: 50%;
+  padding: 1rem 2rem;
+  box-sizing: border-box;
+}
+
+.timeline li:nth-child(odd) {
+  left: 0;
+  text-align: right;
+}
+
+.timeline li:nth-child(even) {
+  left: 50%;
+  text-align: left;
+}
+
+.timeline li::before {
+  content: "";
+  position: absolute;
+  top: 1.5rem;
+  width: 16px;
+  height: 16px;
+  background-color: var(--vermelho-vinho);
+  border: 4px solid var(--branco-quente);
+  border-radius: 50%;
+  z-index: 1;
+  box-shadow: 0 0 0 2px var(--verde-oliva);
+}
+
+.timeline li:nth-child(odd)::before {
+  right: -8px;
+}
+
+.timeline li:nth-child(even)::before {
+  left: -8px;
+}
+
+/* CONTEÚDO DOS ITENS */
+.timeline li .content {
+  background-color: var(--cinza-claro);
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline li .content strong {
+  display: block;
+  color: var(--vermelho-vinho);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.timeline li .content p {
+  margin: 0;
+  color: var(--verde-oliva);
   font-size: 0.95rem;
+  line-height: 1.6;
 }
 
-/* Cards de autores, conceitos, etc */
+.timeline li:hover .content {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* ====== Abas / Tabs ====== */
+.tabs {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  padding: 0.7rem 1.5rem;
+  cursor: pointer;
+  border: 2px solid #c1272d;
+  background: transparent;
+  border-radius: 50px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  color: #333;
+}
+
+.tab-btn.active,
+.tab-btn:hover {
+  background: #c1272d;
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* ====== Cards ====== */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.card.conteudo {
+  background: #fefefe;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 5px solid var(--vermelho-vinho);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card.conteudo:hover {
+   border-left: 5px solid var(--verde-palestina);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.card.conteudo h3 {
+  margin-bottom: 0.7rem;
+}
+
+.card.conteudo p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+
+
+/* ================================
+   CARDS DE AUTORES
+================================ */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
 .card.autor {
-  border-left-color: var(--vermelho-vinho);
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.6s ease;
+  background-color: var(--branco-quente);
+  border-left: 4px solid var(--vermelho-vinho);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card.autor.visible {
-  opacity: 1;
-  transform: translateY(0);
+.card.autor:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+  border-left: 4px solid var(--verde-palestina);
 }
 
-/* Botão de continuidade */
-.section.destaque {
+.card.autor h3 {
+  font-family: var(--fonte-titulo);
+  margin-bottom: 0.5rem;
+  color: var(--verde-oliva);
   text-align: center;
 }
 
-.section.destaque .btn {
-  margin-top: 1.5rem;
+.card.autor p {
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
