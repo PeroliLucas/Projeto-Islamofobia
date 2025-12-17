@@ -1,4 +1,4 @@
-fetch('/components/header.html')
+fetch('../../components/header.html')
   .then(res => {
     if (!res.ok) throw new Error('Header não encontrado');
     return res.text();
@@ -9,7 +9,7 @@ fetch('/components/header.html')
   })
   .catch(err => console.error(err));
 
-fetch('/components/footer.html')
+fetch('../../components/footer.html')
   .then(res => {
     if (!res.ok) throw new Error('Footer não encontrado');
     return res.text();
