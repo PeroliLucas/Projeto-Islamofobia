@@ -1,4 +1,4 @@
-fetch('/components/header.html')
+fetch('components/header.html')
   .then(res => res.text())
   .then(html => {
     document.body.insertAdjacentHTML('afterbegin', html);
@@ -23,7 +23,7 @@ function initHeader() {
   });
 }
 
-fetch('/components/footer.html')
+fetch('components/footer.html')
   .then(res => res.text())
   .then(data => {
     document.body.insertAdjacentHTML('beforeend', data);
