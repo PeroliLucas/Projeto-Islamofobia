@@ -1,44 +1,58 @@
 document.addEventListener("DOMContentLoaded", () => {
   // ================================
+  // AOS INIT
+  // ================================
+  if (typeof AOS !== "undefined") {
+    AOS.init({ duration: 1000, once: true });
+  }
+
+  // ================================
   // PARALLAX HERO
   // ================================
   const hero = document.querySelector(".hero-teoria");
-  window.addEventListener("scroll", () => {
-    if (hero) hero.style.backgroundPositionY = `${window.scrollY * 0.5}px`;
-  });
+  if (hero) {
+    window.addEventListener("scroll", () => {
+      hero.style.backgroundPositionY = `${window.scrollY * 0.5}px`;
+    });
+  }
 
   // ================================
   // CARDS AUTORES (reveal on scroll)
   // ================================
   const autorCards = document.querySelectorAll(".card.autor");
-  function revealCards() {
+  const revealCards = () => {
     const triggerBottom = window.innerHeight * 0.85;
-    autorCards.forEach((card) => {
-      if (card.getBoundingClientRect().top < triggerBottom)
+    autorCards.forEach(card => {
+      if (card.getBoundingClientRect().top < triggerBottom) {
         card.classList.add("visible");
+      }
     });
+  };
+  if (autorCards.length > 0) {
+    window.addEventListener("scroll", revealCards);
+    window.addEventListener("load", revealCards);
   }
-  window.addEventListener("scroll", revealCards);
-  window.addEventListener("load", revealCards);
 
   // ================================
   // ACCORDION IMPACTOS SOCIAIS
   // ================================
   const impactoCards = document.querySelectorAll(".impactos-sociais .impactos");
-  impactoCards.forEach((card) => {
+  impactoCards.forEach(card => {
     const title = card.querySelector("h3");
     const content = card.querySelector("p");
+    if (!title || !content) return;
 
     title.addEventListener("click", () => {
       const isOpen = card.classList.contains("open");
 
-      // FECHA TODOS
-      impactoCards.forEach((c) => {
+      // Fecha todos
+      impactoCards.forEach(c => {
         c.classList.remove("open");
-        c.querySelector("p").style.maxHeight = null;
+        const p = c.querySelector("p");
+        if (p) p.style.maxHeight = null;
       });
 
-      // ABRE O CLICADO
+      // Abre o clicado
       if (!isOpen) {
         card.classList.add("open");
         content.style.maxHeight = content.scrollHeight + "px";
@@ -54,13 +68,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const nextBtn = document.querySelector(".carousel-btn.next");
   let current = 0;
 
-  function showSlide(index) {
-    slides.forEach((slide, i) => {
-      slide.classList.toggle("active", i === index);
-    });
-  }
+  const showSlide = index => {
+    slides.forEach((slide, i) => slide.classList.toggle("active", i === index));
+  };
 
-  if (prevBtn && nextBtn && slides.length > 0) {
+  if (slides.length > 0 && prevBtn && nextBtn) {
     prevBtn.addEventListener("click", () => {
       current = (current - 1 + slides.length) % slides.length;
       showSlide(current);
@@ -80,14 +92,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const tabs = document.querySelectorAll(".tab-btn");
   const cards = document.querySelectorAll(".card.conteudo");
 
-  tabs.forEach((tab) => {
+  tabs.forEach(tab => {
     tab.addEventListener("click", () => {
-      tabs.forEach((t) => t.classList.remove("active"));
+      tabs.forEach(t => t.classList.remove("active"));
       tab.classList.add("active");
 
       const filter = tab.dataset.filter;
-
-      cards.forEach((card) => {
+      cards.forEach(card => {
+        if (!card) return;
         if (filter === "todos" || card.classList.contains(filter)) {
           card.style.display = "block";
           card.classList.add("aos-animate");
@@ -98,18 +110,22 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // ================================
+  // CARDS ESTEREÓTIPOS COM CONTRAPONTO
+  // ================================
   const estereotipoCards = document.querySelectorAll(".card-estereotipo");
 
-  estereotipoCards.forEach((card) => {
+  estereotipoCards.forEach(card => {
+    const contraponto = card.querySelector(".contraponto");
+    if (!contraponto) return;
+
     const btn = document.createElement("button");
     btn.classList.add("toggle-contraponto");
     btn.textContent = "Ver contraponto";
     btn.setAttribute("aria-expanded", "false");
 
-    const contraponto = card.querySelector(".contraponto");
     contraponto.style.maxHeight = "0";
     contraponto.style.overflow = "hidden";
-
     card.insertBefore(btn, contraponto);
 
     btn.addEventListener("click", () => {
@@ -130,51 +146,50 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  document.querySelectorAll(".linha-tempo .evento button").forEach((btn) => {
+  // ================================
+  // LINHA DO TEMPO
+  // ================================
+  document.querySelectorAll(".linha-tempo .evento button").forEach(btn => {
     btn.addEventListener("click", () => {
       const contexto = btn.nextElementSibling;
-      const aberto =
-        contexto.style.maxHeight && contexto.style.maxHeight !== "0px";
+      if (!contexto) return;
+      const aberto = contexto.style.maxHeight && contexto.style.maxHeight !== "0px";
       contexto.style.maxHeight = aberto ? "0" : contexto.scrollHeight + "px";
       btn.textContent = aberto ? "Ver contexto" : "Ocultar contexto";
     });
   });
 
-  window.addEventListener("scroll", () => {
-    const scrollTop = window.scrollY;
-    const docHeight = document.body.scrollHeight - window.innerHeight;
-    const progress = (scrollTop / docHeight) * 100;
-    document.getElementById("progress-bar").style.width = progress + "%";
-  });
+  // ================================
+  // PROGRESS BAR
+  // ================================
+  const progressBar = document.getElementById("progress-bar");
+  if (progressBar) {
+    window.addEventListener("scroll", () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.body.scrollHeight - window.innerHeight;
+      const progress = (scrollTop / docHeight) * 100;
+      progressBar.style.width = progress + "%";
+    });
+  }
 
-  document.querySelectorAll("[data-glossario]").forEach((term) => {
-    // Criar tooltip dinamicamente
+  // ================================
+  // TOOLTIP GLOSSÁRIO
+  // ================================
+  document.querySelectorAll("[data-glossario]").forEach(term => {
     const tooltip = document.createElement("span");
     tooltip.className = "tooltip";
-    tooltip.textContent = term.getAttribute("title");
+    tooltip.textContent = term.getAttribute("title") || "";
     term.appendChild(tooltip);
-
-    // Remover atributo title para não aparecer tooltip nativo
     term.removeAttribute("title");
 
-    term.addEventListener("click", (e) => {
-      e.stopPropagation(); // evita fechar ao clicar no próprio termo
+    term.addEventListener("click", e => {
+      e.stopPropagation();
       term.classList.toggle("aberto");
     });
   });
 
-  // Fechar qualquer tooltip ao clicar fora
   document.addEventListener("click", () => {
-    document.querySelectorAll(".glossario.aberto").forEach((t) => {
-      t.classList.remove("aberto");
-    });
+    document.querySelectorAll(".glossario.aberto").forEach(t => t.classList.remove("aberto"));
   });
-}); // fim DOMContentLoaded
 
-// ================================
-// AOS INIT
-// ================================
-AOS.init({
-  duration: 1000,
-  once: true,
-});
+}); // fim DOMContentLoaded

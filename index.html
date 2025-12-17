@@ -2,25 +2,30 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8" />
-    <title>Colonialismo Epistêmico e Islamofobia</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8" />
+  <title>Colonialismo Epistêmico e Islamofobia</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/responsivo.css" />
-    <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/nav-footer.css" />
+  <!-- FONTS -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet" />
 
-    <script src="/js/main.js" defer></script>
-    <script src="/js/nav-footer.js" defer></script>
-    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <!-- CSS -->
+  <link rel="stylesheet" href="/projeto-islamofobia/css/reset.css" />
+  <link rel="stylesheet" href="/projeto-islamofobia/css/style.css" />
+  <link rel="stylesheet" href="/projeto-islamofobia/css/nav-footer.css" />
+  <link rel="stylesheet" href="/projeto-islamofobia/css/responsivo.css" />
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- JS -->
+  <script src="/projeto-islamofobia/js/main.js" defer></script>
+  <script src="/projeto-islamofobia/js/nav-footer.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" defer></script>
 </head>
 
 <body>
+<div id="header"></div>
     <div id="progress-bar"></div>
-    <main class="home">
+  <main class="home">
         <section class="hero" data-aos="fade-up">
             <div class="hero-content" data-aos="fade-up" data-aos-delay="200">
                 <h1>
@@ -136,10 +141,11 @@
             <a href="/pages/avaliacao/autoavaliacao.html" class="btn primary">Fazer autoavaliação</a>
         </section>
     </main>
-
-    <script>
-        AOS.init({});
-    </script>
+    <div id="footer"></div>
+  <script>
+    AOS.init();
+  </script>
 </body>
+</html>
 
 </html>
