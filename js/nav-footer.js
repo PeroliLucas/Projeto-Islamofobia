@@ -1,9 +1,3 @@
-if (window.location.hostname.includes('github.io')) {
-  const base = document.createElement('base');
-  base.href = '/Projeto-Islamofobia/';
-  document.head.appendChild(base);
-}
-
 function loadComponent(id, path) {
   fetch(path)
   .then(res => res.text())
