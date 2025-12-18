@@ -1,18 +1,10 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8" />
     <title>Intersecções | Islamofobia, Poder e Experiência</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <script>
-  const base = location.hostname.includes('github.io')
-    ? '/Projeto-Islamofobia/'
-    : '/';
-
-  document.write(`<base href="${base}">`);
-</script>
+    <!-- BASE opcional -->
+    <base href="/Projeto-Islamofobia/">
 
     <!-- FONTS -->
     <link
@@ -20,17 +12,18 @@
         rel="stylesheet" />
 
     <!-- CSS -->
-    <link rel="stylesheet" href="../../css/reset.css" />
-    <link rel="stylesheet" href="../../css/style.css" />
-    <link rel="stylesheet" href="../../css/nav-footer.css" />
-    <link rel="stylesheet" href="../../css/responsivo.css" />
+    <link rel="stylesheet" href="/Projeto-Islamofobia/css/reset.css" />
+    <link rel="stylesheet" href="/Projeto-Islamofobia/css/style.css" />
+    <link rel="stylesheet" href="/Projeto-Islamofobia/css/nav-footer.css" />
+    <link rel="stylesheet" href="/Projeto-Islamofobia/css/responsivo.css" />
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
     <!-- JS -->
-    <script src="../../js/main.js" defer></script>
-    <script src="../../js/nav-footer.js" defer></script>
+    <script src="/Projeto-Islamofobia/js/main.js" defer></script>
+    <script src="/Projeto-Islamofobia/js/nav-footer.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" defer></script>
 </head>
+
 
 <body>
 
@@ -386,19 +379,18 @@
             </p>
         </section>
 
-        <!-- NAVEGAÇÃO -->
         <nav class="navegacao-interna" data-aos="fade-up">
-            <a href="colonialismo.html">← Colonialismo epistêmico</a>
-            <a href="islamofobia.html">→ Islamofobia contemporânea</a>
-            <a href="../midia/narrativas.html">→ Narrativas da mídia</a>
-        </nav>
+    <a href="pages/teoria/colonialismo.html">← Colonialismo epistêmico</a>
+    <a href="pages/teoria/islamofobia.html">→ Islamofobia contemporânea</a>
+    <a href="pages/midia/narrativas.html">→ Narrativas da mídia</a>
+</nav>
 
     </main>
 
     <div id="footer"></div>
 
     <script>
-        AOS.init();
+        AOS.init({});
     </script>
 
 </body>

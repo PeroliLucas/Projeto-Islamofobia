@@ -6,30 +6,20 @@
     <title>Islamofobia | Projeto Islamofobia</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <script>
-  const base = location.hostname.includes('github.io')
-    ? '/Projeto-Islamofobia/'
-    : '/';
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet" />
 
-  document.write(`<base href="${base}">`);
-</script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="/Projeto-Islamofobia/css/reset.css" />
+    <link rel="stylesheet" href="/Projeto-Islamofobia/css/style.css" />
+    <link rel="stylesheet" href="/Projeto-Islamofobia/css/nav-footer.css" />
+    <link rel="stylesheet" href="/Projeto-Islamofobia/css/responsivo.css" />
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
-      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet" />
-
-
-   <!-- CSS -->
-<link rel="stylesheet" href="../../css/reset.css" />
-  <link rel="stylesheet" href="../../css/style.css" />
-  <link rel="stylesheet" href="../../css/nav-footer.css" />
-  <link rel="stylesheet" href="../../css/responsivo.css" />
-<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-
-
-<!-- JS -->
-<script src="../../js/main.js" defer></script>
-  <script src="../../js/nav-footer.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" defer></script>
-
+    <!-- JS -->
+    <script src="/Projeto-Islamofobia/js/main.js" defer></script>
+    <script src="/Projeto-Islamofobia/js/nav-footer.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" defer></script>
 </head>
 
 <body>
@@ -344,7 +334,7 @@
 
             <p data-aos="fade-up" data-aos-delay="200">
                 Ao analisar criticamente essas estruturas, torna-se possível questionar
-                narrativas dominantes, ampliar vozes historicamente silenciadas e construir
+                 narativas dominantes, ampliar vozes historicamente silenciadas e construir
                 perspectivas mais justas, inclusivas e comprometidas com a dignidade humana.
             </p>
             <p data-aos="fade-up" data-aos-delay="300">
@@ -353,17 +343,23 @@
             </p>
         </section>
 
-        <!--NAVE-->
+        <!-- NAVEGAÇÃO INTERNA -->
         <nav class="navegacao-interna" data-aos="fade-up">
             <a href="intersecao.html">→ Colonialismo epistêmico e islamofobia</a>
-            <a href="../glossario.html">→ Consultar glossário</a>
-            <a href="../midia/narrativas.html">→ Analisar narrativas da mídia</a>
+            <a href="glossario.html">→ Consultar glossário</a>
+            <a href="midia/narrativas.html">→ Analisar narrativas da mídia</a>
         </nav>
     </main>
 
+    <!-- FOOTER -->
     <div id="footer"></div>
+
+    <!-- INICIALIZAÇÃO AOS -->
     <script>
-        AOS.init({});
+        AOS.init({
+            duration: 800,
+            once: true
+        });
     </script>
 </body>
 
