@@ -1108,3 +1108,300 @@ cite {
   color: #fff;
   transform: translateX(6px);
 }
+
+
+/* =========================================================
+   PÁGINA: INTERSECÇÕES
+   Escopo seguro — não afeta outras páginas
+========================================================= */
+
+/* ==============================
+   HERO
+============================== */
+
+.hero.hero-teoria {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero.hero-teoria::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.06),
+    transparent 65%
+  );
+  pointer-events: none;
+}
+
+.hero.hero-teoria h1 {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero.hero-teoria p {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* ==============================
+   LEITURA PROFUNDA — RITMO
+============================== */
+
+.section.leitura-profunda {
+  position: relative;
+}
+
+.section.leitura-profunda h2 {
+  margin-bottom: 1.4rem;
+}
+
+.section.leitura-profunda p {
+  margin-bottom: 1.6rem;
+}
+
+.section.leitura-profunda p:last-child {
+  margin-bottom: 0;
+}
+
+/* ==============================
+   BOX DE DESTAQUE
+============================== */
+
+.box-destaque,
+.box-destaque.humano {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 122, 61, 0.08),
+    transparent
+  );
+}
+
+.box-destaque.humano p {
+  font-size: 1.05rem;
+  line-height: 1.85;
+}
+
+/* ==============================
+   MIGRAÇÃO — ACCORDION
+============================== */
+
+.impactos-sociais {
+  margin-top: 4rem;
+}
+
+.impactos-sociais > p {
+  max-width: 850px;
+  margin-bottom: 2.8rem;
+}
+
+/* Card base */
+.impactos-sociais .impactos {
+  background: linear-gradient(
+    135deg,
+    var(--branco-quente),
+    #fafafa
+  );
+  border-left: 6px solid var(--verde-palestina);
+  border-radius: 18px;
+  margin-bottom: 1.8rem;
+  padding: 2rem 2.2rem;
+  cursor: pointer;
+  position: relative;
+  transition: 
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* Hover */
+.impactos-sociais .impactos:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.12);
+}
+
+/* Indicador */
+.impactos-sociais .impactos::after {
+  content: "+";
+  position: absolute;
+  right: 2.2rem;
+  top: 1.9rem;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--vermelho-vinho);
+  transition: transform 0.3s ease;
+}
+
+/* Título */
+.impactos-sociais .impactos h3 {
+  font-family: var(--fonte-titulo);
+  font-size: 1.45rem;
+  margin-bottom: 0;
+  max-width: 90%;
+}
+
+/* Conteúdo fechado */
+.impactos-sociais .impactos p {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  padding: 0;
+  transition:
+    max-height 0.55s ease,
+    opacity 0.4s ease,
+    padding 0.4s ease;
+}
+
+/* Estado aberto */
+.impactos-sociais .impactos.open {
+  border-left-color: var(--vermelho-vinho);
+}
+
+.impactos-sociais .impactos.open::after {
+  content: "–";
+  transform: rotate(180deg);
+}
+
+.impactos-sociais .impactos.open p {
+  max-height: 1000px;
+  opacity: 1;
+  padding-top: 1.6rem;
+  line-height: 1.85;
+}
+
+/* ==============================
+   EXPERIÊNCIAS ATRAVESSADAS
+============================== */
+
+.section.leitura-profunda:last-of-type {
+  margin-bottom: 3rem;
+}
+
+/* ==============================
+   CONCLUSÃO
+============================== */
+
+.section.conclusao {
+  background-color: var(--cinza-claro);
+  border-radius: 22px;
+  padding: 3.5rem 2.5rem;
+}
+
+.section.conclusao h2 {
+  text-align: center;
+}
+
+.section.conclusao p {
+  max-width: 780px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ==============================
+   NAVEGAÇÃO INTERNA
+============================== */
+
+.navegacao-interna {
+  border-top: 1px solid var(--cinza-borda);
+  padding-top: 2.8rem;
+}
+
+.navegacao-interna a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* =========================================================
+   INTERSEÇÕES — MAPA CONCEITUAL
+========================================================= */
+
+.interseccoes {
+  max-width: 980px;
+  margin: 5rem auto;
+  padding: 0 1.5rem;
+}
+
+.interseccoes h2 {
+  font-family: var(--fonte-titulo);
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.interseccoes h2::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 2px;
+  background: var(--vermelho-vinho);
+  margin: 0.6rem auto 0;
+  border-radius: 2px;
+}
+
+.interseccoes .descricao {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 4rem;
+  color: rgba(255,255,255,0.75);
+}
+
+/* LISTA */
+.interseccoes ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2.8rem;
+}
+
+/* ITEM */
+.interseccoes li {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+/* MARCA VISUAL (NÃO É PONTO DE TEMPO) */
+.interseccoes li::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  background: var(--vermelho-vinho);
+  border-radius: 3px;
+  margin-top: 0.35rem;
+  box-shadow: 0 0 0 4px rgba(193,39,45,0.15);
+}
+
+/* CONTEÚDO */
+.interseccoes .content {
+  background: rgba(255,255,255,0.04);
+  border-left: 3px solid var(--verde-oliva);
+  padding: 1.4rem 1.6rem;
+  border-radius: 10px;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.interseccoes .content strong {
+  display: block;
+  font-size: 0.85rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--vermelho-vinho);
+  margin-bottom: 0.6rem;
+}
+
+.interseccoes .content p {
+  margin: 0;
+  font-size: 0.96rem;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.9);
+}
+
+.interseccoes li:hover .content {
+  transform: translateX(4px);
+  background: rgba(255,255,255,0.06);
+}

@@ -192,4 +192,5 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".glossario.aberto").forEach(t => t.classList.remove("aberto"));
   });
 
+
 }); // fim DOMContentLoaded

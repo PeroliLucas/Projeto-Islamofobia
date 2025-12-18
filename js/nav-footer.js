@@ -1,15 +1,18 @@
 function loadComponent(id, path) {
   fetch(path)
-  .then(res => res.text())
-  .then(html => {
-    const base = window.location.hostname.includes('github.io') ? '/Projeto-Islamofobia/' : '';
-    const element = document.getElementById(id);
-    element.innerHTML = html.replace(/\/Projeto-Islamofobia\//g, base);
-  })
-  .catch(err => console.error(`Erro ao carregar ${path}`, err))
+    .then(res => {
+      if (!res.ok) throw new Error('Erro ao carregar ' + path);
+      return res.text();
+    })
+    .then(html => {
+      document.getElementById(id).innerHTML = html;
+    })
+    .catch(err => console.error(err));
 }
 
-const basePath = window.location.hostname.includes('github.io') ? '/Projeto-Islamofobia/' : '/';
+const basePath = location.hostname.includes('github.io')
+  ? '/Projeto-Islamofobia/'
+  : '/';
 
 loadComponent('header', basePath + 'components/header.html');
 loadComponent('footer', basePath + 'components/footer.html');
