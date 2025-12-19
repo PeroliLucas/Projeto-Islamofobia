@@ -1405,3 +1405,208 @@ cite {
   transform: translateX(4px);
   background: rgba(255,255,255,0.06);
 }
+
+/* =========================================================
+   SEÇÃO DE CONTEXTO
+========================================================= */
+#contexto-midia {
+  max-width: 900px;
+  margin: 4rem auto 2rem;
+  padding: 0 1.5rem;
+  text-align: center;
+}
+
+#contexto-midia h1 {
+  font-family: var(--fonte-titulo);
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+  color: var(--verde-oliva);
+}
+
+#contexto-midia p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #1c1c1c;
+}
+
+/* =========================================================
+   CONTEXTO MUÇULMANO
+========================================================= */
+#contexto-muculmano {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+}
+
+#contexto-muculmano h2 {
+  font-family: var(--fonte-titulo);
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: var(--verde-oliva);
+}
+
+#contexto-muculmano p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #1c1c1c;
+  margin-bottom: 1rem;
+}
+
+/* =========================================================
+   MANCHETES / SLIDES
+========================================================= */
+#manchetes {
+  max-width: 900px;
+  margin: 4rem auto;
+  padding: 0 1.5rem;
+}
+
+#manchetes h2 {
+  font-family: var(--fonte-titulo);
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  color: var(--vermelho-vinho);
+  text-align: center;
+}
+
+.slide {
+  background-color: var(--branco-quente);
+  border-radius: 14px;
+  padding: 1.8rem 2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.slide:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 26px rgba(0,0,0,0.12);
+}
+
+.slide h3 {
+  font-family: var(--fonte-titulo);
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+  color: var(--verde-oliva);
+}
+
+.slide p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #1c1c1c;
+}
+
+/* =========================================================
+   ASIDE DE IMPACTO
+========================================================= */
+#impacto {
+  max-width: 850px;
+  margin: 3rem auto;
+  padding: 1.8rem 2rem;
+  background-color: var(--verde-oliva);
+  color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+#impacto h3 {
+  font-family: var(--fonte-titulo);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+#impacto p {
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+/* =========================================================
+   DESENVOLVIMENTO DO TEMA
+========================================================= */
+#desenvolvimento {
+  max-width: 900px;
+  margin: 4rem auto;
+  padding: 0 1.5rem;
+}
+
+#desenvolvimento h2 {
+  font-family: var(--fonte-titulo);
+  font-size: 1.8rem;
+  margin-bottom: 1.2rem;
+  color: var(--verde-oliva);
+}
+
+#desenvolvimento p {
+  font-size: 1rem;
+  line-height: 1.85;
+  margin-bottom: 1.3rem;
+  color: #1c1c1c;
+}
+
+/* =========================================================
+   CONCLUSÃO
+========================================================= */
+#conclusao {
+  max-width: 900px;
+  margin: 4rem auto;
+  padding: 2.5rem 1.5rem;
+  background-color: var(--cinza-claro);
+  border-radius: 16px;
+}
+
+#conclusao h2 {
+  font-family: var(--fonte-titulo);
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: var(--vermelho-vinho);
+}
+
+#conclusao p {
+  font-size: 1rem;
+  line-height: 1.8;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+/* =========================================================
+   LINK PARA OUTRAS PÁGINAS
+========================================================= */
+#outras-pages {
+  max-width: 900px;
+  margin: 3rem auto 6rem;
+  padding: 0 1.5rem;
+}
+
+#outras-pages h3 {
+  font-family: var(--fonte-titulo);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--verde-oliva);
+  text-align: center;
+}
+
+#outras-pages ul {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  justify-content: center;
+  gap: 1.8rem;
+  flex-wrap: wrap;
+}
+
+#outras-pages ul li a {
+  font-size: 1rem;
+  padding: 0.8rem 1.3rem;
+  border-radius: 12px;
+  background-color: var(--branco-quente);
+  border: 1px solid var(--verde-oliva);
+  color: var(--verde-oliva);
+  transition: all 0.3s ease;
+}
+
+#outras-pages ul li a:hover {
+  background-color: var(--verde-palestina);
+  color: #fff;
+  transform: translateY(-3px);
+}

@@ -1,0 +1,62 @@
+/* =========================================================
+   QUIZ INTERATIVO
+========================================================= */
+#quiz {
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 2rem 1.5rem;
+  background-color: var(--cinza-claro);
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+}
+
+#quiz h2 {
+  font-family: var(--fonte-titulo);
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: var(--vermelho-vinho);
+}
+
+.quiz-question {
+  margin-bottom: 2rem;
+}
+
+.quiz-question p {
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  color: var(--verde-oliva);
+}
+
+.quiz-question ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.quiz-question li {
+  background-color: #fff;
+  margin-bottom: 0.6rem;
+  padding: 0.9rem 1.2rem;
+  border-radius: 12px;
+  cursor: pointer;
+  border: 1px solid var(--cinza-borda);
+  transition: all 0.3s ease;
+}
+
+.quiz-question li:hover {
+  background-color: var(--verde-palestina);
+  color: #fff;
+  transform: translateX(4px);
+}
+
+.quiz-question li.correct {
+  background-color: var(--verde-palestina);
+  color: #fff;
+  border-color: var(--verde-palestina);
+}
+
+.quiz-question li.wrong {
+  background-color: var(--vermelho-vinho);
+  color: #fff;
+  border-color: var(--vermelho-vinho);
+}
