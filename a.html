@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Metamorfose Scroll</title>
+  <title>Caterpillar Progress</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- GSAP -->
@@ -12,10 +12,12 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #f2f4f1;
+      background: #7a8450;
     }
 
-    /* Barra fixa */
+    /* ===============================
+       BARRA FIXA
+    =============================== */
     .progress-container {
       position: fixed;
       top: 0;
@@ -24,7 +26,7 @@
       background: #ffffff;
       padding: 14px 20px;
       z-index: 9999;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
 
     #progress-text {
@@ -41,27 +43,70 @@
       overflow: hidden;
     }
 
-    /* Lagarta */
+    .ground {
+      position: absolute;
+      bottom: 0;
+      height: 10px;
+      width: 100%;
+      background: #8b6b3f;
+    }
+
+    /* ===============================
+       LAGARTA
+    =============================== */
     .caterpillar {
       position: absolute;
-      bottom: 8px;
+      bottom: 10px;
       left: 0;
       display: flex;
-      gap: 4px;
-      transform-origin: center;
+      align-items: flex-end;
     }
 
-    .caterpillar span {
+    .segment {
       width: 20px;
-      height: 20px;
-      background: #5fa44f;
+      height: 18px;
+      background: #6fbf73;
       border-radius: 50%;
+      margin-left: -4px;
     }
 
-    /* Borboleta */
+    .segment:nth-child(3) { background: #66b86c; }
+    .segment:nth-child(4) { background: #5eaf64; }
+    .segment:nth-child(5) { background: #66b86c; }
+
+    .head {
+      width: 26px;
+      height: 22px;
+      background: #7fd27f;
+      position: relative;
+    }
+
+    .eye {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: #222;
+      border-radius: 50%;
+      right: 6px;
+      top: 8px;
+    }
+
+    .antenna {
+      position: absolute;
+      width: 2px;
+      height: 8px;
+      background: #4f8f4f;
+      top: -6px;
+      right: 9px;
+      border-radius: 2px;
+    }
+
+    /* ===============================
+       BORBOLETA
+    =============================== */
     .butterfly {
       position: absolute;
-      bottom: 4px;
+      bottom: 6px;
       font-size: 2rem;
       opacity: 0;
       transform: scale(0.2);
@@ -72,8 +117,12 @@
       position: absolute;
       right: 10px;
       bottom: 8px;
+      font-size: 1.2rem;
     }
 
+    /* ===============================
+       CONTEÚDO
+    =============================== */
     main {
       padding-top: 120px;
     }
@@ -85,38 +134,41 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
-    }
-
-    section:nth-child(odd) {
-      background: #e3e8dd;
+      background: #f2f4f1;
     }
 
     section:nth-child(even) {
-      background: #d4dcc7;
+      background: #e0e5dc;
     }
   </style>
 </head>
 
 <body>
 
+  <!-- PROGRESSO -->
   <div class="progress-container">
     <span id="progress-text">0%</span>
 
     <div class="track">
       <div class="caterpillar" id="caterpillar">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
+        <div class="segment head">
+          <span class="eye"></span>
+          <span class="antenna"></span>
+        </div>
+        <div class="segment"></div>
+        <div class="segment"></div>
+        <div class="segment"></div>
+        <div class="segment"></div>
+        <div class="segment"></div>
       </div>
 
       <div class="butterfly" id="butterfly">🦋</div>
       <div class="flag">🏁</div>
+      <div class="ground"></div>
     </div>
   </div>
 
+  <!-- CONTEÚDO -->
   <main>
     <section>Introdução</section>
     <section>Contexto Histórico</section>
@@ -126,23 +178,33 @@
     <section>Conclusão</section>
   </main>
 
+  <!-- JS -->
   <script>
     const text = document.getElementById("progress-text");
     const caterpillar = document.getElementById("caterpillar");
     const butterfly = document.getElementById("butterfly");
-    const segments = document.querySelectorAll(".caterpillar span");
+    const segments = document.querySelectorAll(".segment");
     const track = document.querySelector(".track");
 
     let transformed = false;
 
-    /* 🐛 animação contínua */
-    const wiggle = gsap.to(segments, {
-      scaleY: 1.3,
+    /* 🐛 movimento do corpo */
+    const walk = gsap.to(segments, {
+      y: -6,
+      repeat: -1,
+      yoyo: true,
+      duration: 0.35,
+      stagger: 0.08,
+      ease: "sine.inOut"
+    });
+
+    /* cabeça */
+    gsap.to(".head", {
+      rotate: 6,
       yoyo: true,
       repeat: -1,
-      duration: 0.25,
-      stagger: 0.08,
-      ease: "power1.inOut"
+      duration: 0.4,
+      ease: "sine.inOut"
     });
 
     window.addEventListener("scroll", () => {
@@ -160,7 +222,7 @@
 
       gsap.to(caterpillar, {
         x: progress * maxX,
-        duration: 0.2,
+        duration: 0.25,
         ease: "power2.out"
       });
 
@@ -168,15 +230,14 @@
         x: progress * maxX
       });
 
-      /* 🦋 METAMORFOSE */
-      if (percentage >= 100 && !transformed) {
+      /* 🦋 METAMORFOSE AOS 60% */
+      if (percentage >= 60 && !transformed) {
         transformed = true;
-
-        wiggle.kill();
+        walk.kill();
 
         gsap.timeline()
           .to(caterpillar, {
-            scale: 0.2,
+            scale: 0.25,
             opacity: 0,
             duration: 0.5,
             ease: "power2.in"
@@ -184,16 +245,16 @@
           .to(butterfly, {
             opacity: 1,
             scale: 1,
-            y: -10,
+            y: -14,
             duration: 0.6,
             ease: "back.out(1.7)"
           }, "-=0.2")
           .to(butterfly, {
-            y: -18,
+            y: -22,
             repeat: -1,
             yoyo: true,
-            duration: 0.8,
-            ease: "power1.inOut"
+            duration: 0.9,
+            ease: "sine.inOut"
           });
       }
     });
