@@ -1,196 +1,104 @@
+<div class="progress-container">
+  <span id="progress-text">Loading... 0%</span>
+
+  <div class="track">
+    <div class="caterpillar" id="caterpillar">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <div class="flag">🏁</div>
+  </div>
+</div>
+
 <style>
-    /*/* =========================================================
-   INTERSEÇÕES — MAPA CONCEITUAL
-========================================================= */
-
-.interseccoes {
-  max-width: 980px;
-  margin: 5rem auto;
-  padding: 0 1.5rem;
-}
-
-/* TÍTULO */
-.interseccoes h2 {
-  font-family: var(--fonte-titulo);
-  font-size: 2rem;
-  font-weight: 500;
-  text-align: center;
-  margin-bottom: 1rem;
-  color: var(--branco-quente);
-}
-
-.interseccoes h2::after {
-  content: "";
-  display: block;
-  width: 48px;
-  height: 2px;
-  background: var(--vermelho-vinho);
-  margin: 0.6rem auto 0;
-  border-radius: 2px;
-}
-
-/* DESCRIÇÃO */
-.interseccoes .descricao {
-  text-align: center;
-  max-width: 720px;
-  margin: 0 auto 4rem;
-  font-size: 0.95rem;
-  line-height: 1.7;
-  color: rgba(255,255,255,0.75);
-}
-
-.interseccoes .descricao strong {
-  color: var(--branco-quente);
-  font-weight: 500;
-}
-
-/* LISTA */
-.interseccoes ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+body {
+  font-family: Arial, sans-serif;
+  background: #7a8450;
   display: flex;
-  flex-direction: column;
-  gap: 3rem;
+  justify-content: center;
+  margin-top: 50px;
 }
 
-/* ITEM */
-.interseccoes li {
-  display: grid;
-  grid-template-columns: 28px 1fr;
-  gap: 2rem;
-  align-items: flex-start;
+.progress-container {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  width: 420px;
+  text-align: center;
 }
 
-/* MARCA CONCEITUAL */
-.interseccoes li::before {
-  content: "";
-  width: 12px;
-  height: 12px;
-  background: var(--vermelho-vinho);
-  border-radius: 3px;
-  margin-top: 0.4rem;
-  box-shadow: 0 0 0 4px rgba(193, 39, 45, 0.15);
-}
-
-/* BLOCO DE CONTEÚDO */
-.interseccoes .content {
-  background: rgba(255,255,255,0.04);
-  border-left: 3px solid var(--verde-oliva);
-  padding: 1.4rem 1.6rem;
-  border-radius: 10px;
-  transition: background 0.25s ease;
-}
-
-/* EIXO CONCEITUAL */
-.interseccoes .content strong {
+#progress-text {
   display: block;
-  font-size: 0.8rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--vermelho-vinho);
-  margin-bottom: 0.6rem;
+  margin-bottom: 10px;
+  font-weight: bold;
 }
 
-/* TEXTO */
-.interseccoes .content p {
-  margin: 0;
-  font-size: 0.96rem;
-  line-height: 1.75;
-  color: rgba(255,255,255,0.9);
+.track {
+  position: relative;
+  height: 60px;
+  background: #c9b48b;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
-/* HOVER */
-.interseccoes li:hover .content {
-  background: rgba(255,255,255,0.07);
+.caterpillar {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  display: flex;
+  gap: 4px;
+  transition: left 0.3s ease;
 }
 
+.caterpillar span {
+  width: 22px;
+  height: 22px;
+  background: #5fa44f;
+  border-radius: 50%;
+  animation: wiggle 0.6s infinite alternate;
+}
+
+.caterpillar span:nth-child(odd) {
+  animation-delay: 0.2s;
+}
+
+.flag {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+@keyframes wiggle {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
 </style>
-<section class="secao interseccoes" data-aos="fade-up">
-  <h2>Interseções sociais da islamofobia</h2>
-
-  <p class="descricao">
-    Este mapeamento não segue uma cronologia histórica,
-    mas destaca <strong>eixos de exclusão que operam de forma articulada</strong>.
-    Cada bloco representa um campo de tensão entre marcadores sociais
-    como raça, gênero, classe, nacionalidade e religião.
-  </p>
-
-  <ul>
-    <li>
-      <div class="content">
-        <strong>Religião → Raça</strong>
-        <p>
-          O Islã deixa de ser compreendido apenas como prática religiosa
-          e passa a ser associado a traços corporais, morais e culturais,
-          permitindo processos de racialização e vigilância contínua.
-        </p>
-      </div>
-    </li>
-
-    <li>
-      <div class="content">
-        <strong>Classe → Migração</strong>
-        <p>
-          Populações muçulmanas migrantes são inseridas em estruturas
-          de trabalho precarizado, onde classe social, origem colonial
-          e religião operam juntas para limitar direitos e mobilidade.
-        </p>
-      </div>
-    </li>
-
-    <li>
-      <div class="content">
-        <strong>Gênero → Controle</strong>
-        <p>
-          O corpo feminino muçulmano torna-se um campo simbólico de disputa,
-          sendo simultaneamente enquadrado como oprimido e ameaçador,
-          legitimando políticas de intervenção e tutela.
-        </p>
-      </div>
-    </li>
-
-    <li>
-      <div class="content">
-        <strong>Aparência → Suspeição</strong>
-        <p>
-          Vestimenta, sotaque e fenótipo produzem hierarquias internas
-          de suspeição, fazendo com que a vigilância atue de forma
-          desigual mesmo entre sujeitos muçulmanos.
-        </p>
-      </div>
-    </li>
-
-    <li>
-      <div class="content">
-        <strong>Interseccionalidade → Resistência</strong>
-        <p>
-          A articulação consciente entre marcadores sociais transforma
-          a interseccionalidade em prática política, orientando estratégias
-          de resistência, produção de narrativas próprias e disputa simbólica.
-        </p>
-      </div>
-    </li>
-  </ul>
-</section>
 
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  // Seleciona todos os botões "Ver análise"
-  const botoes = document.querySelectorAll(".interseccoes button");
+let progress = 0;
 
-  botoes.forEach(botao => {
-    botao.addEventListener("click", () => {
-      // O conteúdo extra está na div imediatamente depois do botão
-      const contexto = botao.nextElementSibling;
-      if (!contexto) return;
+const text = document.getElementById("progress-text");
+const caterpillar = document.getElementById("caterpillar");
+const trackWidth = 360;
 
-      // Alterna visibilidade
-      contexto.style.display = contexto.style.display === "block" ? "none" : "block";
+const interval = setInterval(() => {
+  progress++;
+  text.textContent = `Loading... ${progress}%`;
 
-      // Alterna o texto do botão
-      botao.textContent = contexto.style.display === "block" ? "Fechar análise" : "Ver análise";
-    });
-  });
-});
+  const position = (progress / 100) * trackWidth;
+  caterpillar.style.left = position + "px";
+
+  if (progress >= 100) {
+    clearInterval(interval);
+    text.textContent = "Completed! 🎉";
+  }
+}, 80);
 </script>
